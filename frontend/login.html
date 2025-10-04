@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Cosmic Explorer</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+   Navigation 
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">🌌 Cosmic Explorer</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+   Login Form 
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-card">
+        <h1>Welcome Back</h1>
+        <p>Sign in to access your profile and saved favorites</p>
+        
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required class="form-input">
+          </div>
+          <div id="errorMessage" class="error-message" style="display: none;"></div>
+          <button type="submit" class="btn-primary btn-full">Sign In</button>
+        </form>
+
+        <div class="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button onclick="showSignUp()" class="btn-secondary btn-full">Create Account</button>
+      </div>
+    </div>
+  </section>
+
+   Sign Up Modal 
+  <div id="signUpModal" class="modal" style="display: none;">
+    <div class="modal-content auth-modal">
+      <span class="modal-close" onclick="closeSignUp()">&times;</span>
+      <h2>Create Account</h2>
+      <form id="signUpForm" onsubmit="handleSignUp(event)">
+        <div class="form-group">
+          <label for="signUpEmail">Email</label>
+          <input type="email" id="signUpEmail" required class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="signUpPassword">Password</label>
+          <input type="password" id="signUpPassword" required minlength="6" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="signUpUsername">Username</label>
+          <input type="text" id="signUpUsername" required class="form-input">
+        </div>
+        <div id="signUpError" class="error-message" style="display: none;"></div>
+        <button type="submit" class="btn-primary btn-full">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+   Footer 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Cosmic Explorer. Powered by NASA APIs and Supabase.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Cosmic Explorer</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+   Navigation 
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">🌌 Cosmic Explorer</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="compare.html">Compare</a></li>
+        <li><a href="simulate.html">Simulate</a></li>
+        <li><a href="learn.html">Learn</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><button id="logoutBtn" class="btn-secondary" onclick="handleLogout()">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+   Profile Section 
+  <section class="profile-section">
+    <div class="container">
+      <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading profile...</p>
+      </div>
+
+      <div id="profileContent" style="display: none;">
+        <div class="profile-header">
+          <div class="profile-avatar">👤</div>
+          <div>
+            <h1 id="profileUsername"></h1>
+            <p id="profileEmail"></p>
+          </div>
+        </div>
+
+        <div class="profile-tabs">
+          <button class="tab-btn active" onclick="showTab('favorites')">Favorites</button>
+          <button class="tab-btn" onclick="showTab('quizzes')">Quiz History</button>
+          <button class="tab-btn" onclick="showTab('stats')">Statistics</button>
+        </div>
+
+        <div id="favoritesTab" class="tab-content">
+          <h2>Favorite Objects</h2>
+          <div id="favoritesList" class="favorites-grid"></div>
+          <div id="noFavorites" class="empty-state" style="display: none;">
+            <p>You haven't added any favorites yet. Explore objects and click the favorite button!</p>
+            <a href="explore.html" class="btn-primary">Explore Objects</a>
+          </div>
+        </div>
+
+        <div id="quizzesTab" class="tab-content" style="display: none;">
+          <h2>Quiz History</h2>
+          <div id="quizHistory" class="quiz-history"></div>
+          <div id="noQuizzes" class="empty-state" style="display: none;">
+            <p>You haven't taken any quizzes yet. Test your knowledge!</p>
+            <a href="learn.html" class="btn-primary">Take a Quiz</a>
+          </div>
+        </div>
+
+        <div id="statsTab" class="tab-content" style="display: none;">
+          <h2>Your Statistics</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="totalFavorites">0</div>
+              <div class="stat-label">Favorites</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="totalQuizzes">0</div>
+              <div class="stat-label">Quizzes Taken</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="avgScore">0%</div>
+              <div class="stat-label">Average Score</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="bestScore">0%</div>
+              <div class="stat-label">Best Score</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   Footer 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Cosmic Explorer. Powered by NASA APIs and Supabase.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
